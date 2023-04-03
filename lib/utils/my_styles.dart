@@ -6,6 +6,10 @@ class MyStyles {
   static Color? primaryColor = Colors.blueGrey[900];
   static Color secondaryColor = Colors.black54;
 
+  // Buttons Colors
+  static Color? unselectedColor = Colors.blueGrey[300];
+  static Color selectedColor = Colors.amber;
+
   // TextStyles
   static TextStyle h1Style = GoogleFonts.inter(
       fontSize: 24,
@@ -14,13 +18,17 @@ class MyStyles {
       letterSpacing: -0.5);
   static TextStyle h2Style = GoogleFonts.inter(
       fontSize: 18, color: primaryColor, fontWeight: FontWeight.w600);
-  static TextStyle suppTextStyle = GoogleFonts.khula(
+  static TextStyle supportingTextStyle = GoogleFonts.khula(
     fontSize: 12,
     color: secondaryColor,
     fontWeight: FontWeight.w600,
   );
 
   // Paddings
-  static EdgeInsets myDefaultPadding =
+  static EdgeInsets myDefaultVerticalElementsPadding =
       const EdgeInsets.only(top: 10, bottom: 5);
+  static EdgeInsets myDefaultHorizontalAppPadding =
+      const EdgeInsets.only(left: 10.0);
+  static EdgeInsets myDefaultHorizontalElementsPadding =
+      const EdgeInsets.only(left: 10.0);
 }

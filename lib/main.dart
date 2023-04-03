@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter1001tickets/components/app_container.dart';
+import 'package:flutter1001tickets/screens/app_container.dart';
 
 void main() {
   runApp(const MyApp());

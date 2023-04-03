@@ -9,11 +9,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.grey[100],
         body: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
+          padding: MyStyles.myDefaultHorizontalAppPadding,
           child: ListView(
             children: [
               Padding(
-                padding: MyStyles.myDefaultPadding,
+                padding: MyStyles.myDefaultVerticalElementsPadding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: MyStyles.myDefaultPadding,
+                padding: MyStyles.myDefaultVerticalElementsPadding,
                 child: Row(
                   children: [
                     Column(
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           // DateFormat('EEEE d ' 'de' ' MMMM', 'es').format(DateTime.now()),
                           "Lunes 3 de Marzo".toUpperCase(),
-                          style: MyStyles.suppTextStyle,
+                          style: MyStyles.supportingTextStyle,
                         ),
                         // const SizedBox(height: 10.0),
                         Text(
