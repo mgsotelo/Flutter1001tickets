@@ -40,6 +40,9 @@ dependencies:
   # Google fonts
   google_fonts: ^4.0.3
 
+  # easy widgets: getwidget
+  getwidget: ^2.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
