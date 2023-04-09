@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter1001tickets/utils/my_styles.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeComponent extends StatelessWidget {
+  const HomeComponent({super.key});
 
   @override
   Widget build(BuildContext context) {

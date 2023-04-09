@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter1001tickets/widgets/app_container.dart';
+import 'package:flutter1001tickets/screens/first_run_screen.dart';
+import 'package:flutter1001tickets/screens/main_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
+  runApp(MyApp(isFirstRun: isFirstRun));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isFirstRun;
+
+  const MyApp({super.key, required this.isFirstRun});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '1001 Tickets',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AppContainer(),
+      initialRoute: isFirstRun? '/first-run': '/',
+      routes: {
+        '/': (context) => const MainScreen(),
+        '/first-run': (context) => const FirstRunScreen(),
+      },
+      // home: const AppContainer(),
     );
   }
 }
