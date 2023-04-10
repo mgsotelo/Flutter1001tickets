@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter1001tickets/utils/my_styles.dart';
 import 'package:getwidget/colors/gf_color.dart';
 import 'package:getwidget/components/image/gf_image_overlay.dart';
 import 'package:getwidget/components/intro_screen/gf_intro_screen.dart';
@@ -39,18 +40,17 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
           onForwardButtonTap: () {
             _pageController.nextPage(
                 duration: const Duration(milliseconds: 300),
-                curve: Curves.linear);
+                curve: Curves.decelerate);
           },
           onBackButtonTap: () {
             _pageController.previousPage(
                 duration: const Duration(milliseconds: 300),
-                curve: Curves.linear);
+                curve: Curves.decelerate);
           },
           navigationBarColor: Colors.white,
           showDivider: false,
           inactiveColor: Colors.grey.shade200,
           activeColor: GFColors.SUCCESS,
-
         ),
       ),
     );
@@ -68,15 +68,12 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
           borderRadius: BorderRadius.circular(5),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const <Widget>[
+            children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top: 70.0, left: 20),
+                padding: const EdgeInsets.only(top: 70.0, left: 20),
                 child: Text(
-                  'Welcome!',
-                  style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.none,
-                      fontSize: 25),
+                  "¡Bienvenido!",
+                  style: MyStyles.h1StyleWhite,
                 ),
               ),
             ],
@@ -88,10 +85,10 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(0),
+            color: Colors.purple[400],
             image: const DecorationImage(
-              image: AssetImage('assets/images/1001tickets.png'),
+              image: AssetImage('assets/images/best-artists.png'),
               fit: BoxFit.contain,
-              
             )),
       ),
       Container(
@@ -99,10 +96,10 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(0),
+            color: Colors.green[400],
             image: const DecorationImage(
-              image: AssetImage('assets/images/1001tickets.png'),
+              image: AssetImage('assets/images/safe-qrs.png'),
               fit: BoxFit.contain,
-              
             )),
       ),
       Container(
@@ -110,10 +107,10 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(0),
+            color: Colors.amber[400],
             image: const DecorationImage(
-              image: AssetImage('assets/images/1001tickets.png'),
+              image: AssetImage('assets/images/safe-marketplace.png'),
               fit: BoxFit.contain,
-              
             )),
       ),
     ];

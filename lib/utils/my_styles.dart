@@ -16,6 +16,14 @@ class MyStyles {
       color: primaryColor,
       fontWeight: FontWeight.w600,
       letterSpacing: -0.5);
+  
+  static TextStyle h1StyleWhite = GoogleFonts.inter(
+      fontSize: 24,
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      decoration: TextDecoration.none,
+      letterSpacing: -0.5);
+
   static TextStyle h2Style = GoogleFonts.inter(
       fontSize: 18, color: primaryColor, fontWeight: FontWeight.w600);
   static TextStyle supportingTextStyle = GoogleFonts.khula(
