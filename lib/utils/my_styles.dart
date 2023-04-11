@@ -16,7 +16,7 @@ class MyStyles {
       color: primaryColor,
       fontWeight: FontWeight.w600,
       letterSpacing: -0.5);
-  
+
   static TextStyle h1StyleWhite = GoogleFonts.inter(
       fontSize: 24,
       color: Colors.white,
@@ -26,10 +26,23 @@ class MyStyles {
 
   static TextStyle h2Style = GoogleFonts.inter(
       fontSize: 18, color: primaryColor, fontWeight: FontWeight.w600);
+  static TextStyle h2StyleWhite = GoogleFonts.inter(
+    fontSize: 18,
+    color: Colors.white,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+  );
   static TextStyle supportingTextStyle = GoogleFonts.khula(
     fontSize: 12,
     color: secondaryColor,
     fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle supportingTextStyleWhite = GoogleFonts.khula(
+    fontSize: 12,
+    color: Colors.white,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
   );
 
   // Paddings

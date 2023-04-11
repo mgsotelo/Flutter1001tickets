@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter1001tickets/utils/my_styles.dart';
+import 'package:gap/gap.dart';
 import 'package:getwidget/colors/gf_color.dart';
-import 'package:getwidget/components/image/gf_image_overlay.dart';
 import 'package:getwidget/components/intro_screen/gf_intro_screen.dart';
 import 'package:getwidget/components/intro_screen/gf_intro_screen_bottom_navigation_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -68,27 +68,6 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
   List<Widget> _slides() {
     slideList = [
       Container(
-          child: GFImageOverlay(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.all(16),
-        color: Colors.orange,
-        image: const AssetImage('assets/images/1001tickets.png'),
-        boxFit: BoxFit.contain,
-        borderRadius: BorderRadius.circular(5),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 70.0, left: 20),
-              child: Text(
-                "¡Bienvenido!",
-                style: MyStyles.h1StyleWhite,
-              ),
-            ),
-          ],
-        ),
-      )),
-      Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -98,6 +77,28 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
               image: AssetImage('assets/images/best-artists.png'),
               fit: BoxFit.contain,
             )),
+        child: Column(
+          children: [
+            const Gap(100),
+            Center(
+                child: Text(
+              "Los mejores conciertos",
+              softWrap: true,
+              style: MyStyles.h2StyleWhite,
+            )),
+            const Gap(10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Center(
+                  child: Text(
+                "Sigue a tus artistas favoritos y no te pierdas ningún concierto suyo.",
+                softWrap: true,
+                style: MyStyles.supportingTextStyleWhite,
+                textAlign: TextAlign.center,
+              )),
+            ),
+          ],
+        ),
       ),
       Container(
         width: MediaQuery.of(context).size.width,
@@ -109,6 +110,28 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
               image: AssetImage('assets/images/drop-queues.png'),
               fit: BoxFit.contain,
             )),
+        child: Column(
+          children: [
+            const Gap(100),
+            Center(
+                child: Text(
+              "Sin las molestas \"colas virtuales\"",
+              softWrap: true,
+              style: MyStyles.h2StyleWhite,
+            )),
+            const Gap(10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Center(
+                  child: Text(
+                "Olvídate de esperar horas para tener tus entradas. Consigue tu entrada en minutos y sin pagar de más.",
+                softWrap: true,
+                style: MyStyles.supportingTextStyleWhite,
+                textAlign: TextAlign.center,
+              )),
+            ),
+          ],
+        ),
       ),
       Container(
         width: MediaQuery.of(context).size.width,
@@ -120,17 +143,61 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
               image: AssetImage('assets/images/safe-qrs.png'),
               fit: BoxFit.contain,
             )),
+        child: Column(
+          children: [
+            const Gap(100),
+            Center(
+                child: Text(
+              "Tu seguridad es lo más importante",
+              softWrap: true,
+              style: MyStyles.h2StyleWhite,
+            )),
+            const Gap(10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Center(
+                  child: Text(
+                "Garantizamos la seguridad de tus datos y la total validez de las entradas en nuestra plataforma.",
+                softWrap: true,
+                style: MyStyles.supportingTextStyleWhite,
+                textAlign: TextAlign.center,
+              )),
+            ),
+          ],
+        ),
       ),
       Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(0),
-            color: Colors.amber[400],
+            color: Colors.blue[400],
             image: const DecorationImage(
               image: AssetImage('assets/images/safe-marketplace.png'),
               fit: BoxFit.contain,
             )),
+        child: Column(
+          children: [
+            const Gap(100),
+            Center(
+                child: Text(
+              "Sin estafas de reventas",
+              softWrap: true,
+              style: MyStyles.h2StyleWhite,
+            )),
+            const Gap(10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Center(
+                  child: Text(
+                "Usa el marketplace de nuestra app para comprar entradas de alguien que no podrá ir al concierto, o vender las entradas que no vayas a usar. Todo 100% seguro.",
+                softWrap: true,
+                style: MyStyles.supportingTextStyleWhite,
+                textAlign: TextAlign.center,
+              )),
+            ),
+          ],
+        ),
       ),
     ];
     return slideList;
