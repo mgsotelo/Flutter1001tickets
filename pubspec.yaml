@@ -49,6 +49,9 @@ dependencies:
   # easy spaces using gap 
   gap: ^2.0.1
 
+  # firebase
+  firebase_core: ^2.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
