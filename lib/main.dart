@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: isFirstRun? '/first-run': '/',
+      initialRoute: isFirstRun ? '/first-run' : '/',
       routes: {
         '/': (context) => const MainScreen(),
         '/first-run': (context) => const FirstRunScreen(),

@@ -4,6 +4,7 @@ import 'package:getwidget/colors/gf_color.dart';
 import 'package:getwidget/components/image/gf_image_overlay.dart';
 import 'package:getwidget/components/intro_screen/gf_intro_screen.dart';
 import 'package:getwidget/components/intro_screen/gf_intro_screen_bottom_navigation_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstRunScreen extends StatefulWidget {
   const FirstRunScreen({super.key});
@@ -29,7 +30,7 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
     return SafeArea(
       child: GFIntroScreen(
         color: Colors.blueGrey,
-        slides: slides(),
+        slides: _slides(),
         pageController: _pageController,
         currentIndex: 0,
         pageCount: 5,
@@ -47,6 +48,14 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.decelerate);
           },
+          onDoneTap: _goToMainScreen,
+          onSkipTap: _goToMainScreen,
+          // ------ custom button texts (spanish) ------
+          skipButtonText: 'SALTAR',
+          doneButtonText: 'LISTO',
+          forwardButtonText: 'SIGUIENTE',
+          backButtonText: 'ATRAS',
+          // -------------------------------------------
           navigationBarColor: Colors.white,
           showDivider: false,
           inactiveColor: Colors.grey.shade200,
@@ -56,30 +65,29 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
     );
   }
 
-  List<Widget> slides() {
+  List<Widget> _slides() {
     slideList = [
       Container(
-        child: GFImageOverlay(
-          width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.all(16),
-          color: Colors.orange,
-          image: const AssetImage('assets/images/1001tickets.png'),
-          boxFit: BoxFit.contain,
-          borderRadius: BorderRadius.circular(5),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 70.0, left: 20),
-                child: Text(
-                  "¡Bienvenido!",
-                  style: MyStyles.h1StyleWhite,
-                ),
+          child: GFImageOverlay(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(16),
+        color: Colors.orange,
+        image: const AssetImage('assets/images/1001tickets.png'),
+        boxFit: BoxFit.contain,
+        borderRadius: BorderRadius.circular(5),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 70.0, left: 20),
+              child: Text(
+                "¡Bienvenido!",
+                style: MyStyles.h1StyleWhite,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ),
+      )),
       Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -88,6 +96,17 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
             color: Colors.purple[400],
             image: const DecorationImage(
               image: AssetImage('assets/images/best-artists.png'),
+              fit: BoxFit.contain,
+            )),
+      ),
+      Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(0),
+            color: Colors.pink[400],
+            image: const DecorationImage(
+              image: AssetImage('assets/images/drop-queues.png'),
               fit: BoxFit.contain,
             )),
       ),
@@ -115,5 +134,11 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
       ),
     ];
     return slideList;
+  }
+
+  void _goToMainScreen() async {
+    Navigator.pushNamed((context), '/');
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isFirstRun', false);
   }
 }
