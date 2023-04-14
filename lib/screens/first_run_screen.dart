@@ -27,8 +27,8 @@ class _FirstRunScreenState extends State<FirstRunScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: GFIntroScreen(
+    return Scaffold(
+      body: GFIntroScreen(
         color: Colors.blueGrey,
         slides: _slides(),
         pageController: _pageController,

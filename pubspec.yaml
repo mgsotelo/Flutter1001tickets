@@ -55,6 +55,9 @@ dependencies:
   firebase_auth: ^4.4.0
   firebase_storage: ^11.1.0
 
+  # email validation in text fields xdxd
+  email_validator: '^2.1.16'
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

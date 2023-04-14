@@ -26,19 +26,21 @@ class MyStyles {
 
   static TextStyle h2Style = GoogleFonts.inter(
       fontSize: 18, color: primaryColor, fontWeight: FontWeight.w600);
+
   static TextStyle h2StyleWhite = GoogleFonts.inter(
     fontSize: 18,
     color: Colors.white,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
   );
-  static TextStyle supportingTextStyle = GoogleFonts.khula(
+
+  static TextStyle supportingTextStyle = GoogleFonts.lato(
     fontSize: 12,
     color: secondaryColor,
     fontWeight: FontWeight.w600,
   );
 
-  static TextStyle supportingTextStyleWhite = GoogleFonts.khula(
+  static TextStyle supportingTextStyleWhite = GoogleFonts.lato(
     fontSize: 12,
     color: Colors.white,
     fontWeight: FontWeight.w600,
