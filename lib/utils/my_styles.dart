@@ -47,6 +47,15 @@ class MyStyles {
     decoration: TextDecoration.none,
   );
 
+  static TextStyle underlineSupportingTextStyleWhite = GoogleFonts.lato(
+    fontSize: 12,
+    color: Colors.blue[300],
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.underline,
+    decorationColor: Colors.blue,
+    decorationThickness: 1.5,
+  );
+
   // Paddings
   static EdgeInsets myDefaultVerticalElementsPadding =
       const EdgeInsets.only(top: 10, bottom: 5);
