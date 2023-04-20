@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter1001tickets/utils/my_styles.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -41,8 +42,22 @@ class AuthScreen extends StatelessWidget {
                 type: "password"),
             const Gap(10),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                TextButton(
+                  onPressed: () {
+                    // TODO
+                  },
+                  style: ButtonStyle(
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                      EdgeInsets.zero,
+                    ),
+                  ),
+                  child: Text(
+                    "Registrarme",
+                    style: MyStyles.underlineSupportingTextStyleWhite,
+                  ),
+                ),
                 TextButton(
                   onPressed: () {
                     // TODO
@@ -95,11 +110,27 @@ class AuthScreen extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.blue[700]!),
                 ),
-                child: Text(
-                  'Iniciar Sesión con Facebook',
-                  style: MyStyles.h2StyleWhite,
+                child: Row(
+                  children: <Widget>[
+                    const Icon(FontAwesomeIcons.facebook),
+                    const Gap(20),
+                    Text(
+                      'Iniciar Sesión con Facebook',
+                      style: MyStyles.h2StyleWhite,
+                    ),
+                  ],
                 ),
               ),
+            ),
+            const Gap(60),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/1001tickets.png',
+                  height: 60,
+                ),
+              ],
             ),
           ],
         )),
