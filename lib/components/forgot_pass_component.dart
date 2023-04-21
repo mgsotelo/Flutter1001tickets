@@ -2,40 +2,21 @@ import 'package:email_validator/email_validator.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter1001tickets/utils/my_styles.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
-class LoginComponent extends StatelessWidget {
-  final Function onRegisterSelected;
-  final Function onForgotSelected;
+class ForgotPassComponent extends StatelessWidget {
+  final Function onLoginSelected;
 
-  LoginComponent({
-    super.key,
-    required this.onRegisterSelected,
-    required this.onForgotSelected,
-  });
+  ForgotPassComponent({super.key, required this.onLoginSelected});
 
   final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
-  void _goToRegisterComponent() {
-    onRegisterSelected();
+  void _goToLoginComponent() {
+    onLoginSelected();
   }
 
-  void _goToForgotPassComponent() {
-    onForgotSelected();
-  }
-
-  void _onFacebookLogin() {
-    // Use Firebase to login using facebook
-    // Change shared preferences (?)
-    // Go To Main Screen or previous screen, it depends
-  }
-
-  void _onLogin() {
-    // Use Firebase to login using email/pass
-    // Change shared preferences (?)
-    // Go To Main Screen or previous screen, it depends
+  void _onForgotPassRequest() {
+    // Call Firebase to reset email password
   }
 
   @override
@@ -49,12 +30,13 @@ class LoginComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Ingresa a tu cuenta",
+            "Olvidé mi contraseña",
             textAlign: TextAlign.center,
             style: MyStyles.h1StyleWhite,
           ),
           const Gap(10),
-          Text("Ingresa tu correo y contraseña para continuar",
+          Text(
+              "Ingresa tu dirección de correo electrónico para enviar el enlace de recuperación de tu cuenta",
               textAlign: TextAlign.center,
               style: MyStyles.supportingTextStyleWhite),
           const Gap(60),
@@ -62,81 +44,37 @@ class LoginComponent extends StatelessWidget {
               'Correo Electrónico',
               type: "email"),
           const Gap(20),
-          _buildTextField(passwordController, FluentIcons.lock_closed_24_filled,
-              'Contraseña',
-              type: "password"),
-          const Gap(10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                onPressed: _goToRegisterComponent,
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all<EdgeInsets>(
-                    EdgeInsets.zero,
-                  ),
-                ),
-                child: Text(
-                  "Registrarme",
-                  style: MyStyles.underlineSupportingTextStyleWhite,
-                ),
-              ),
-              TextButton(
-                onPressed: _goToForgotPassComponent,
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all<EdgeInsets>(
-                    EdgeInsets.zero,
-                  ),
-                ),
-                child: Text(
-                  "Olvidé mi contraseña",
-                  style: MyStyles.underlineSupportingTextStyleWhite,
-                ),
-              ),
-            ],
-          ),
-          const Gap(10),
           SizedBox(
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed: _onLogin,
+              onPressed: _onForgotPassRequest,
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               ),
               child: Text(
-                'Iniciar Sesión',
+                'Recuperar mi contraseña',
                 style: MyStyles.h2StyleWhite,
               ),
             ),
           ),
-          const Gap(20),
-          Text(
-            "⎯⎯⎯⎯⎯⎯⎯⎯    o quizás    ⎯⎯⎯⎯⎯⎯⎯⎯",
-            style: MyStyles.supportingTextStyleWhite,
-            textAlign: TextAlign.center,
-          ),
-          const Gap(20),
-          SizedBox(
-            width: double.infinity,
-            height: 50,
-            child: ElevatedButton(
-              onPressed: _onFacebookLogin,
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.blue[700]!),
-              ),
-              child: Row(
-                children: <Widget>[
-                  const Icon(FontAwesomeIcons.facebook),
-                  const Gap(20),
-                  Text(
-                    'Iniciar Sesión con Facebook',
-                    style: MyStyles.h2StyleWhite,
+          const Gap(10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: _goToLoginComponent,
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.zero,
                   ),
-                ],
+                ),
+                child: Text(
+                  "Volver al Inicio de Sesión",
+                  style: MyStyles.underlineSupportingTextStyleWhite,
+                ),
               ),
-            ),
+            ],
           ),
           const Gap(60),
           Row(

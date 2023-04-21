@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter1001tickets/components/forgot_pass_component.dart';
 import 'package:flutter1001tickets/components/login_component.dart';
+import 'package:flutter1001tickets/components/register_component.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -18,8 +20,10 @@ class _AuthScreenState extends State<AuthScreen> {
         onForgotSelected: _onForgotScreenSelected,
         onRegisterSelected: _onRegisterScreenSelected,
       ),
-      const Text("Register"),
-      const Text("Forgot Password"),
+      RegisterComponent(
+          onLoginSelected: _onLoginScreenSelected,
+          onForgotSelected: _onForgotScreenSelected),
+      ForgotPassComponent(onLoginSelected: _onLoginScreenSelected)
     ];
   }
 
@@ -51,6 +55,11 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[850],
+      appBar: AppBar(
+        backgroundColor: Colors.grey[850],
+        leading: const BackButton(color: Colors.white),
+        elevation: 0,
+      ),
       body: widgetTypeOption()[_selectedIndex],
     );
   }

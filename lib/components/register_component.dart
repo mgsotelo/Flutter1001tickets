@@ -5,35 +5,36 @@ import 'package:flutter1001tickets/utils/my_styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
-class LoginComponent extends StatelessWidget {
-  final Function onRegisterSelected;
+class RegisterComponent extends StatelessWidget {
+  final Function onLoginSelected;
   final Function onForgotSelected;
 
-  LoginComponent({
-    super.key,
-    required this.onRegisterSelected,
-    required this.onForgotSelected,
-  });
+  RegisterComponent(
+      {super.key,
+      required this.onLoginSelected,
+      required this.onForgotSelected});
 
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController repeatPasswordController =
+      TextEditingController();
 
-  void _goToRegisterComponent() {
-    onRegisterSelected();
+  void _goToLoginComponent() {
+    onLoginSelected();
   }
 
   void _goToForgotPassComponent() {
     onForgotSelected();
   }
 
-  void _onFacebookLogin() {
-    // Use Firebase to login using facebook
+  void _onFacebookRegister() {
+    // Use Firebase to register using facebook
     // Change shared preferences (?)
     // Go To Main Screen or previous screen, it depends
   }
 
-  void _onLogin() {
-    // Use Firebase to login using email/pass
+  void _onRegister() {
+    // Use Firebase to register using email/pass
     // Change shared preferences (?)
     // Go To Main Screen or previous screen, it depends
   }
@@ -49,12 +50,13 @@ class LoginComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Ingresa a tu cuenta",
+            "Crea tu cuenta",
             textAlign: TextAlign.center,
             style: MyStyles.h1StyleWhite,
           ),
           const Gap(10),
-          Text("Ingresa tu correo y contraseña para continuar",
+          Text(
+              "Ingresa tu correo y contraseña para registrarte en nuestra aplicación",
               textAlign: TextAlign.center,
               style: MyStyles.supportingTextStyleWhite),
           const Gap(60),
@@ -65,19 +67,23 @@ class LoginComponent extends StatelessWidget {
           _buildTextField(passwordController, FluentIcons.lock_closed_24_filled,
               'Contraseña',
               type: "password"),
+          const Gap(20),
+          _buildTextField(repeatPasswordController,
+              FluentIcons.lock_closed_24_filled, 'Repite tu contraseña',
+              type: "password"),
           const Gap(10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextButton(
-                onPressed: _goToRegisterComponent,
+                onPressed: _goToLoginComponent,
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(
                     EdgeInsets.zero,
                   ),
                 ),
                 child: Text(
-                  "Registrarme",
+                  "Ya tengo una cuenta",
                   style: MyStyles.underlineSupportingTextStyleWhite,
                 ),
               ),
@@ -100,12 +106,12 @@ class LoginComponent extends StatelessWidget {
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed: _onLogin,
+              onPressed: _onRegister,
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
               ),
               child: Text(
-                'Iniciar Sesión',
+                'Registrarme',
                 style: MyStyles.h2StyleWhite,
               ),
             ),
@@ -121,7 +127,7 @@ class LoginComponent extends StatelessWidget {
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed: _onFacebookLogin,
+              onPressed: _onFacebookRegister,
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Colors.blue[700]!),
@@ -131,7 +137,7 @@ class LoginComponent extends StatelessWidget {
                   const Icon(FontAwesomeIcons.facebook),
                   const Gap(20),
                   Text(
-                    'Iniciar Sesión con Facebook',
+                    'Registrarme con Facebook',
                     style: MyStyles.h2StyleWhite,
                   ),
                 ],
