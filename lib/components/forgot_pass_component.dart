@@ -81,7 +81,7 @@ class ForgotPassComponent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/images/1001tickets.png',
+                'assets/images/1001tickets_4dark.png',
                 height: 60,
               ),
             ],
