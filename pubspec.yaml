@@ -58,6 +58,7 @@ dependencies:
 
   # email validation in text fields xdxd
   email_validator: '^2.1.16'
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
