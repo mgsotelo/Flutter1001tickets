@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter1001tickets/screens/auth_screen.dart';
 import 'package:flutter1001tickets/screens/first_run_screen.dart';
 import 'package:flutter1001tickets/screens/main_screen.dart';
@@ -27,12 +28,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: '1001 Tickets',
       theme: ThemeData(
+        appBarTheme:
+            const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.dark),
         primarySwatch: Colors.blue,
       ),
       initialRoute: isFirstRun ? '/first-run' : '/',
+      // initialRoute: '/auth',
       routes: {
         '/': (context) => const MainScreen(),
         '/first-run': (context) => const FirstRunScreen(),
+        '/auth': (context) => const AuthScreen(),
       },
       // home: const AppContainer(),
     );

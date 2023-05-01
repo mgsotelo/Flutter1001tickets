@@ -60,7 +60,7 @@ class MyStyles {
   static EdgeInsets myDefaultVerticalElementsPadding =
       const EdgeInsets.only(top: 10, bottom: 5);
   static EdgeInsets myDefaultHorizontalAppPadding =
-      const EdgeInsets.only(left: 10.0);
-  static EdgeInsets myDefaultHorizontalElementsPadding =
-      const EdgeInsets.only(left: 10.0);
+      const EdgeInsets.symmetric(horizontal: 10);
+  // static EdgeInsets myDefaultHorizontalElementsPadding =
+  //     const EdgeInsets.only(left: 10.0);
 }
