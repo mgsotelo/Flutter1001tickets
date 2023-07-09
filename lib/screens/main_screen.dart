@@ -1,18 +1,18 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter1001tickets/components/home_screen.dart';
+import 'package:flutter1001tickets/components/home_component.dart';
 
-class AppContainer extends StatefulWidget {
-  const AppContainer({Key? key}) : super(key: key);
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
-  State<AppContainer> createState() => _AppContainerState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _AppContainerState extends State<AppContainer> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
+    const HomeComponent(),
     const Text("Marketplace"),
     const Text("Busqueda"),
     const Text("Mis Tickets"),

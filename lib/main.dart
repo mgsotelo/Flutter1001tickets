@@ -1,22 +1,45 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter1001tickets/components/app_container.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter1001tickets/screens/auth_screen.dart';
+import 'package:flutter1001tickets/screens/first_run_screen.dart';
+import 'package:flutter1001tickets/screens/main_screen.dart';
+import 'package:flutter1001tickets/utils/firebase_options.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
+  runApp(MyApp(isFirstRun: isFirstRun));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isFirstRun;
+
+  const MyApp({super.key, required this.isFirstRun});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '1001 Tickets',
       theme: ThemeData(
+        appBarTheme:
+            const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.dark),
         primarySwatch: Colors.blue,
       ),
-      home: const AppContainer(),
+      initialRoute: isFirstRun ? '/first-run' : '/',
+      // initialRoute: '/auth',
+      routes: {
+        '/': (context) => const MainScreen(),
+        '/first-run': (context) => const FirstRunScreen(),
+        '/auth': (context) => const AuthScreen(),
+      },
+      // home: const AppContainer(),
     );
   }
 }
