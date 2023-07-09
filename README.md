@@ -1,5 +1,9 @@
 # 1001tickets
 
+> [Abandoned project]: I realized that even though this app solves a problem, it is not a problem worth solving. 
+The current players in the event and ticketing management in LatAm have major deals with most of the scenarios, and the 
+app wouldn't be profitable in the long run.
+
 1001tickets is an app that eliminates virtual queues when buying tickets, sells original tickets securely, and offers a secure marketplace for people to resell their tickets if they don't need them.
 
 ## Features
